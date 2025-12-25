@@ -33,13 +33,18 @@ class ViewController: UIViewController {
     
     @IBAction func stopTask(_ sender: Any) {
         work?.cancel()
-        taskStatus = .cancelled
     }
     
     @IBAction func startTask(_ sender: Any) {
         work = DispatchWorkItem {
             self.taskStatus = .running
-            Thread.sleep(forTimeInterval: 10)
+            for _ in 0..<10 {
+                Thread.sleep(forTimeInterval: 1)
+                if self.work?.isCancelled == true {
+                    self.taskStatus = .cancelled
+                    return
+                }
+            }
             self.taskStatus = .completed
         }
         guard let work else { return }
