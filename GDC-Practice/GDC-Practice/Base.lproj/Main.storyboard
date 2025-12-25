@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24127" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ajp-Ca-EqF">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24063"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -15,10 +16,53 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QPg-3F-3n0">
+                                <rect key="frame" x="165.66666666666666" y="222" width="62" height="39"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Start"/>
+                                <connections>
+                                    <action selector="startTask:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nuq-ek-qKc"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OTi-Qr-QpL">
+                                <rect key="frame" x="152.66666666666666" y="281" width="88" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="None" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g5q-5K-88M">
+                                <rect key="frame" x="176" y="322" width="41" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wv2-d7-l9c">
+                                <rect key="frame" x="166.66666666666666" y="363" width="60" height="39"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Stop"/>
+                                <connections>
+                                    <action selector="stopTask:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rev-Lg-vJx"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="QPg-3F-3n0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="9hb-Ly-NsU"/>
+                            <constraint firstItem="Wv2-d7-l9c" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="EVO-Dg-32p"/>
+                            <constraint firstItem="OTi-Qr-QpL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Iyi-05-C8W"/>
+                            <constraint firstItem="QPg-3F-3n0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PmO-yh-vAY"/>
+                            <constraint firstItem="OTi-Qr-QpL" firstAttribute="top" secondItem="QPg-3F-3n0" secondAttribute="bottom" constant="20" id="TZa-Hd-7Bz"/>
+                            <constraint firstItem="g5q-5K-88M" firstAttribute="top" secondItem="OTi-Qr-QpL" secondAttribute="bottom" constant="20" id="XE7-60-LRl"/>
+                            <constraint firstItem="Wv2-d7-l9c" firstAttribute="top" secondItem="g5q-5K-88M" secondAttribute="bottom" constant="20" id="oub-Bj-v5j"/>
+                            <constraint firstItem="g5q-5K-88M" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vLk-Bz-xWI"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TLi-hH-Mlf"/>
+                    <connections>
+                        <outlet property="taskStatusLabel" destination="g5q-5K-88M" id="jNJ-OK-FMb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
