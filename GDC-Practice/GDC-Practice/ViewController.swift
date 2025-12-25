@@ -11,9 +11,12 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        DispatchQueue.main.sync {
-            print("Cause deadlock or not ?")
-        }
+        let concurrentQueue = DispatchQueue.global()
+        let backgroundWorkItem = DispatchWorkItem(block: {})
+        let updateWorkItem = DispatchWorkItem(block: {})
+        
+        backgroundWorkItem.notify(queue: .main, execute: updateWorkItem)
+        concurrentQueue.async(execute: backgroundWorkItem)
     }
 }
 
